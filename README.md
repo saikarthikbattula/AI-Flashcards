@@ -8,7 +8,7 @@ Node 22+: `npm ci`, copy `.env.example` to `.env.local`, then `npm run dev`. No 
 
 ## Accounts and cloud decks
 
-Configure both Clerk keys. The proxy enables Clerk middleware only when configured. Set `FIREBASE_PROJECT_ID` plus `FIREBASE_SERVICE_ACCOUNT_JSON` as a server secret, or use GCP application default credentials. Create Firestore; deploy the deny-all client rules in `firestore.rules`. Only API routes using verified Clerk sessions access cloud data through the Admin SDK. Users explicitly save and load cloud decks. Browser review progress is local; it does not sync. Signing out does not clear browser decks, so use a trusted device and delete local decks when done.
+Configure both Clerk keys. The proxy enables Clerk middleware only when configured. Set `FIREBASE_PROJECT_ID` plus `FIREBASE_SERVICE_ACCOUNT_JSON` as a server secret, or use GCP application default credentials. Create Firestore; deploy the shared project rules in `firestore.rules`. These allow Firebase-authenticated users to access their own pantry/feedback documents while denying direct client access to Recall decks, billing, and Stripe events. The same Firebase project can serve all three apps; deploying a separate deny-all rules file would break Pantry and Support. Only API routes using verified Clerk sessions access cloud data through the Admin SDK. Users explicitly save and load cloud decks. Browser review progress is local; it does not sync. Signing out does not clear browser decks, so use a trusted device and delete local decks when done.
 
 ## Billing
 
