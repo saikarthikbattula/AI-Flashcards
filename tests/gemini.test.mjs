@@ -57,3 +57,21 @@ test("Gemini Interactions transport keeps keys server-side and supports structur
     else process.env.GEMINI_API_KEY = old;
   }
 });
+
+test("application deadline ends a stalled provider call", async () => {
+  const original = globalThis.fetch;
+  const old = process.env.GEMINI_API_KEY;
+  process.env.GEMINI_API_KEY = "test-only-key";
+  globalThis.fetch = () => new Promise(() => {});
+  try {
+    await assert.rejects(
+      () =>
+        generate({ system: "Instructions", prompt: "Content", timeoutMs: 10 }),
+      (error) => error.status === 503 && /too long/.test(error.message),
+    );
+  } finally {
+    globalThis.fetch = original;
+    if (old === undefined) delete process.env.GEMINI_API_KEY;
+    else process.env.GEMINI_API_KEY = old;
+  }
+});
