@@ -1,0 +1,30 @@
+{
+  "name": "headstarter-flashcards",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build --webpack",
+    "start": "next start",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "next": "16.4.3",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "@google/genai": "2.32.0",
+    "zod": "^4.1.0",
+    "@clerk/nextjs": "7.9.23",
+    "stripe": "23.1.0",
+    "firebase-admin": "14.5.0"
+  },
+  "overrides": {
+    "@grpc/grpc-js": "1.14.7",
+    "glob": "14.0.3",
+    "minimatch": "11.0.3"
+  }
+}
