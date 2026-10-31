@@ -1,0 +1,379 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap");
+:root {
+  --paper: #f6f5ef;
+  --ink: #25382f;
+  --muted: #5b6d63;
+  --accent: #416850;
+  --line: #dce1d7;
+  --tint: #e8eee2;
+  --card: #fffef9;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font:
+    16px/1.6 "DM Sans",
+    system-ui,
+    sans-serif;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button,
+a,
+input,
+select,
+textarea {
+  touch-action: manipulation;
+}
+button {
+  cursor: pointer;
+  background: var(--ink);
+  color: white;
+  border: 1px solid var(--ink);
+  border-radius: 10px;
+  padding: 10px 18px;
+  transition: background 0.15s;
+}
+button:hover {
+  background: var(--accent);
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+button.secondary,
+.secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+button.small {
+  padding: 5px 12px;
+  font-size: 14px;
+}
+a {
+  color: inherit;
+  text-underline-offset: 4px;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid #b7713b;
+  outline-offset: 3px;
+}
+input,
+textarea,
+select {
+  border: 1px solid #bbc7bb;
+  border-radius: 9px;
+  padding: 11px;
+  background: var(--card);
+  color: var(--ink);
+  width: 100%;
+}
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+}
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+h1,
+h2 {
+  font-family: "DM Serif Display", Georgia, serif;
+  font-weight: 400;
+  line-height: 1.1;
+}
+h1 {
+  font-size: clamp(42px, 6vw, 76px);
+  letter-spacing: -2px;
+  max-width: 800px;
+  margin-bottom: 22px;
+}
+h2 {
+  font-size: 32px;
+}
+h3 {
+  font-size: 20px;
+}
+header {
+  max-width: 1200px;
+  margin: auto;
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  text-decoration: none;
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+}
+.brand span {
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 8px;
+  padding: 3px 9px;
+  margin-right: 10px;
+}
+main {
+  max-width: 1200px;
+  padding: 54px 32px 80px;
+  margin: auto;
+}
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+.intro {
+  max-width: 620px;
+  font-size: 18px;
+  color: var(--muted);
+}
+.row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.between {
+  justify-content: space-between;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.52fr);
+  gap: 24px;
+}
+.panel,
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 24px;
+}
+.card p,
+.muted {
+  color: var(--muted);
+}
+.badge {
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 30px;
+  background: var(--tint);
+  display: inline-block;
+  color: var(--ink);
+}
+.toolbar {
+  margin: 28px 0;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.toolbar input {
+  flex: 1;
+  min-width: 180px;
+}
+.stack {
+  display: grid;
+  gap: 16px;
+}
+.notice {
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: var(--tint);
+  font-size: 14px;
+  margin: 16px 0;
+}
+.error {
+  background: #ffe9e0;
+  color: #843824;
+}
+.empty {
+  text-align: center;
+  padding: 50px 24px;
+  color: var(--muted);
+}
+.stats {
+  display: flex;
+  gap: 40px;
+  margin: 30px 0;
+}
+.stats strong {
+  font:
+    36px "DM Serif Display",
+    Georgia,
+    serif;
+  display: block;
+}
+.stats span {
+  font-size: 13px;
+  color: var(--muted);
+}
+.item {
+  border-bottom: 1px solid var(--line);
+  padding: 18px 0;
+}
+.item:last-child {
+  border: 0;
+}
+.qty {
+  width: 80px;
+}
+.chat-log {
+  height: 460px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px;
+}
+.message {
+  background: var(--tint);
+  border-radius: 16px;
+  padding: 16px;
+  max-width: 90%;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.message.user {
+  align-self: flex-end;
+  background: var(--ink);
+  color: white;
+}
+.sources {
+  font-size: 12px;
+  margin-top: 10px;
+}
+.flashcard {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+  width: 100%;
+  background: var(--card);
+  color: var(--ink);
+  font:
+    26px/1.5 "DM Serif Display",
+    serif;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+}
+.flashcard:hover {
+  background: var(--tint);
+}
+.card footer {
+  margin-top: 18px;
+}
+.skip {
+  position: absolute;
+  top: -100px;
+}
+.skip:focus {
+  top: 4px;
+  left: 4px;
+  background: white;
+  padding: 8px;
+  z-index: 100;
+}
+.divider {
+  margin: 30px 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+progress {
+  width: 100%;
+  accent-color: var(--accent);
+}
+small {
+  font-size: 13px;
+}
+footer.site-footer {
+  max-width: 1200px;
+  margin: auto;
+  border-top: 1px solid var(--line);
+  padding: 20px 32px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.image-preview {
+  max-width: 100%;
+  max-height: 150px;
+  object-fit: contain;
+}
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+@media (max-width: 800px) {
+  .columns,
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  header {
+    padding: 18px 20px;
+  }
+  main {
+    padding: 36px 20px;
+  }
+  h1 {
+    letter-spacing: -1px;
+  }
+  .stats {
+    gap: 22px;
+  }
+  .panel,
+  .card {
+    padding: 20px;
+  }
+  .chat-log {
+    height: 380px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto;
+    transition: none !important;
+  }
+}
+
+@media (max-width: 600px) { .row > label { min-width: 130px; } }
