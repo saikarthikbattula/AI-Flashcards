@@ -43,6 +43,7 @@ test("Gemini Interactions transport keeps keys server-side and supports structur
     const payload = JSON.parse(captured.body);
     assert.equal(payload.system_instruction, "Instructions");
     assert.equal(payload.store, false);
+    assert.equal(payload.generation_config.thinking_level, "low");
     assert.equal(payload.response_format.mime_type, "application/json");
     assert.deepEqual(payload.input[1], {
       type: "image",
